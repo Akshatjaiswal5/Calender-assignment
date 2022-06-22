@@ -2,33 +2,46 @@ import React, { useReducer } from "react";
 import GlobalContext from "./global-context";
 import { dummyAppointments } from "../dummydata/dummydata";
 const globalStateReducer = (state, action) => {
-  if ((action.type = "ADD_NEW_APPOINTMENT")) {
-  } else if ((action.type = "CHANGE CURRENT DATE")) {
+  const newState = { ...state };
+
+  if (action.type === "ADD_NEW_APPOINTMENT") {
+  } else if (action.type === "CHANGE CURRENT DATE") {
+  } else if (action.type === "TOGGLE_NEXT_WEEK") {
+    let newDate = new Date(state.currDate);
+    newDate.setDate(newDate.getDate() + 7);
+    newDate = newDate.toLocaleDateString();
+    newState.currDate = newDate;
+    newState.currWeekArr = getWeekArr(newDate);
+  } else if (action.type === "TOGGLE_PREV_WEEK") {
+    let newDate = new Date(state.currDate);
+    newDate.setDate(newDate.getDate() - 7);
+    newDate = newDate.toLocaleDateString();
+    newState.currDate = newDate;
+    newState.currWeekArr = getWeekArr(newDate);
   }
+  return newState;
 };
 
-const getCurrSunday = (input) => {
-  let startDate = new Date(input);
-  startDate.setDate(startDate.getDate() - startDate.getDay());
-  return startDate;
+const getWeekArr = (date) => {
+  const weekarr = [];
+  for (let i = 0; i < 7; i++) {
+    const d = new Date(date);
+    d.setDate(d.getDate() + i);
+    weekarr.push(d.toLocaleDateString());
+  }
+  return weekarr;
 };
 
 const initGlobalState = () => {
-  let currWeekArr = [];
   let today = new Date();
   today.setDate(today.getDate() - today.getDay());
 
   const currDate = today.toLocaleDateString();
-  for (let i = 0; i < 7; i++) {
-    const d = new Date(currDate);
-    d.setDate(d.getDate() + i);
-    currWeekArr.push(d.toLocaleDateString());
-  }
 
   return {
     appointments: dummyAppointments,
     currDate: currDate,
-    currWeekArr: currWeekArr,
+    currWeekArr: getWeekArr(currDate),
   };
 };
 
@@ -37,9 +50,8 @@ const GlobalContextProvider = (props) => {
     globalStateReducer,
     {
       currDate: new Date().toLocaleDateString(),
-      appointments: {},
-      currWeekArr: [],
-      weekAppointments: [],
+      appointments: dummyAppointments,
+      currWeekArr: getWeekArr(new Date().toLocaleDateString()),
     },
     initGlobalState
   );
@@ -50,7 +62,6 @@ const GlobalContextProvider = (props) => {
         currDate: globalState.currDate,
         currWeekArr: globalState.currWeekArr,
         appointments: globalState.appointments,
-        weekAppointments: globalState.weekAppointments,
         dispatchGlobalState: dispatchGlobalState,
       }}
     >

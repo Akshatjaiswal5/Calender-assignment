@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
 .main {
   background-color: whitesmoke;
   height: 3em;
@@ -7,9 +8,10 @@
   top: 0;
 }
 .main label {
+  margin-left: 12.5%;
   display: block;
   float: left;
-  text-align: right;
+  text-align: left;
   width: 12.5%;
   font-size: 2em;
 }

@@ -8,10 +8,10 @@ import Appointments from "./Appointments/Appointments";
 const Calender = (props) => {
   return (
     <div className={styles.main}>
+      <Appointments />
       <TitleBar />
       <WeekBar />
       <CalenderBG />
-      <Appointments />
     </div>
   );
 };

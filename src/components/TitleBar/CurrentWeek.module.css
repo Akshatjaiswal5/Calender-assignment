@@ -1,9 +1,11 @@
-.main {
+.date {
+  position: absolute;
   display: block;
   width: fit-content;
-  background-color: red;
-  float: right;
-}
-.main :hover {
-  background-color: pink;
+  float: left;
+  left: 45%;
+  margin-top: 0.25em;
+  text-align: center;
+  width: 20%;
+  font-size: 1.25em;
 }
