@@ -1,0 +1,15 @@
+.weekbar {
+  background-color: bisque;
+  width: 100%;
+  height: 5em;
+  position: fixed;
+  top: 3em;
+  float: right;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.cornerbar {
+  width: 12.5%;
+  height: 5em;
+  background-color: whitesmoke;
+  float: left;
+}

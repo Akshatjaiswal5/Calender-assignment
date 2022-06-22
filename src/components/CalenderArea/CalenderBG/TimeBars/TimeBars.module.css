@@ -1,0 +1,15 @@
+.timebars {
+  background-color: aqua;
+  height: 240em;
+  width: 12.5%;
+  margin-top: 7.25em;
+}
+.timebar {
+  display: block;
+  height: 5em;
+  text-align: right;
+  background-color: whitesmoke;
+}
+.timebar label {
+  padding-right: 0.5em;
+}

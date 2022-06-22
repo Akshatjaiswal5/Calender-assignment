@@ -1,0 +1,9 @@
+.main {
+  display: block;
+  width: fit-content;
+  background-color: red;
+  float: right;
+}
+.main :hover {
+  background-color: pink;
+}
