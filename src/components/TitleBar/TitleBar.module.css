@@ -7,5 +7,9 @@
   top: 0;
 }
 .main label {
+  display: block;
+  float: left;
+  text-align: right;
+  width: 12.5%;
   font-size: 2em;
 }

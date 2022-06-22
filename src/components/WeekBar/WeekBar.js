@@ -4,7 +4,6 @@ import GlobalContext from "../../context/global-context";
 import DayBar from "./DayBar";
 const WeekBar = (props) => {
   const ctx = useContext(GlobalContext);
-  const weekarr = [];
   let startDate = new Date(ctx.currDate);
   startDate.setDate(startDate.getDate() - startDate.getDay());
 
@@ -14,11 +13,9 @@ const WeekBar = (props) => {
       {ctx.currWeekArr.map((elem) => {
         return (
           <DayBar
-            key={elem.day}
-            day={elem.day}
-            date={elem.date}
-            month={elem.month}
-            busy={elem.busy}
+            key={Math.random().toString()}
+            date={elem}
+            busy={ctx.appointments.hasOwnProperty(elem)}
           />
         );
       })}
