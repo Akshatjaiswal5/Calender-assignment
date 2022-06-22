@@ -9,7 +9,6 @@ const WeekBar = (props) => {
 
   return (
     <div className={styles.weekbar}>
-      <div className={styles.cornerbar}></div>
       {ctx.currWeekArr.map((elem) => {
         return (
           <DayBar

@@ -5,7 +5,22 @@ const globalStateReducer = (state, action) => {
   const newState = { ...state };
 
   if (action.type === "ADD_NEW_APPOINTMENT") {
-  } else if (action.type === "CHANGE CURRENT DATE") {
+    const newEntry = {
+      msg: action.msg,
+      startTime: action.startTime,
+      endTime: action.endTime,
+      date: action.date,
+    };
+
+    if (newState.appointments.hasOwnProperty(action.date)) {
+      newState.appointments[action.date].push(newEntry);
+    } else {
+      const arr = [];
+      arr.push(newEntry);
+      newState.appointments[action.date] = arr;
+    }
+    newState.currWeekArr = getWeekArr(newState.currDate);
+    console.log(newEntry);
   } else if (action.type === "TOGGLE_NEXT_WEEK") {
     let newDate = new Date(state.currDate);
     newDate.setDate(newDate.getDate() + 7);

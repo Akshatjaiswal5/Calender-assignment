@@ -1,4 +1,3 @@
-import { SliderMarkLabel } from "@mui/material";
 import React from "react";
 import styles from "./Appointment.module.css";
 
@@ -8,7 +7,7 @@ const Appointment = (props) => {
   const randomColor = `rgb(${120 + Math.floor(Math.random() * 135)},${
     120 + Math.floor(Math.random() * 135)
   },${120 + Math.floor(Math.random() * 135)}`;
-  const msg = props.entry.msg;
+  let msg = props.entry.msg;
   if (msg.length > 30) {
     msg = msg.substring(0, 26) + "...";
   }
