@@ -6,7 +6,7 @@ const DayBar = (props) => {
 
   const date = new Date(props.date).getDate();
   const day = week[new Date(props.date).getDay()];
-  console.log(props.date);
+
   return (
     <div className={props.busy ? styles.busydaybar : styles.daybar}>
       <label className={styles.day}>{day}</label>

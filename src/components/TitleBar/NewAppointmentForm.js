@@ -5,8 +5,8 @@ import GlobalContext from "../../context/global-context";
 const timestamps = [
   "00:00 AM",
   "00:30 AM",
-  "01:30 AM",
   "01:00 AM",
+  "01:30 AM",
   "02:00 AM",
   "02:30 AM",
   "03:00 AM",
@@ -67,6 +67,33 @@ const NewAppointmentForm = (props) => {
       endTime: values.endTime,
     });
   };
+  const validationHandler = (values) => {
+    const errors = {};
+
+    if (values.msg.trim() === "") {
+      errors.msg = "Empty titles are not allowed";
+    }
+
+    if (values.startTime >= values.endTime) {
+      errors.startTime = "Illegal Start and End Times";
+    } else {
+      const d = new Date(values.date).toLocaleDateString();
+
+      if (ctx.appointments.hasOwnProperty(d)) {
+        const arr = ctx.appointments[d];
+
+        arr.forEach((elem) => {
+          if (
+            values.startTime <= elem.endTime &&
+            values.endTime >= elem.startTime
+          ) {
+            errors.startTime = "Conflicting Appointment found";
+          }
+        });
+      }
+    }
+    return errors;
+  };
   const exit = () => {
     props.setFormState(false);
   };
@@ -78,6 +105,7 @@ const NewAppointmentForm = (props) => {
       msg: "",
     },
     onSubmit: submitHandler,
+    validate: validationHandler,
   });
 
   return (
@@ -92,7 +120,9 @@ const NewAppointmentForm = (props) => {
             value={formik.values.msg}
             onChange={formik.handleChange}
           />
+          <label>{formik.errors.msg !== "" ? formik.errors.msg : "  "}</label>
         </div>
+
         <div className={styles.date}>
           <input
             type="date"
@@ -129,6 +159,11 @@ const NewAppointmentForm = (props) => {
               </option>
             ))}
           </select>
+        </div>
+        <div className={styles.err}>
+          <label>
+            {formik.errors.startTime !== "" ? formik.errors.startTime : "  "}
+          </label>
         </div>
         <div className={styles.buttons}>
           <button type="button" onClick={exit}>

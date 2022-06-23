@@ -20,7 +20,6 @@ const globalStateReducer = (state, action) => {
       newState.appointments[action.date] = arr;
     }
     newState.currWeekArr = getWeekArr(newState.currDate);
-    console.log(newEntry);
   } else if (action.type === "TOGGLE_NEXT_WEEK") {
     let newDate = new Date(state.currDate);
     newDate.setDate(newDate.getDate() + 7);

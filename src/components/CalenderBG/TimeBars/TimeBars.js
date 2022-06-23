@@ -5,8 +5,8 @@ const TimeBars = (props) => {
   const timestamps = [
     " ",
     "00:30 AM",
-    "01:30 AM",
     "01:00 AM",
+    "01:30 AM",
     "02:00 AM",
     "02:30 AM",
     "03:00 AM",

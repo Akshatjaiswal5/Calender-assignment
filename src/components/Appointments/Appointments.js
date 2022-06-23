@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import styles from "./Appointments.module.css";
 import GlobalContext from "../../context/global-context";
 import Appointment from "./Appointment";
 
