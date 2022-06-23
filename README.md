@@ -11,3 +11,5 @@ Things I could have done better:\
 -> If I had more time, I could implement a month view, additional details etc\
 
 I have spent a lot of time on this, Hope you like it.
+
+deployed site: https://weekly-calender-scheduler-aj.netlify.app/
