@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import GlobalContext from "../../context/global-context";
 import styles from "./AppointmentDetails.module.css";
 const timestamps = [
