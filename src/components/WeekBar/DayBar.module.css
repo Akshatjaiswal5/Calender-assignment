@@ -22,3 +22,11 @@
   margin-top: 0.5em;
   font-size: large;
 }
+.busydaybar .date {
+  margin-left: 45%;
+  background-color: rgb(248, 134, 88);
+  border-radius: 1em;
+  padding: 2px;
+  width: fit-content;
+  left: 50%;
+}

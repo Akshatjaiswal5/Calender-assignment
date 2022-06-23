@@ -74,7 +74,7 @@ const NewAppointmentForm = (props) => {
       errors.msg = "Empty titles are not allowed";
     }
 
-    if (values.startTime >= values.endTime) {
+    if (values.startTime - values.endTime >= 0) {
       errors.startTime = "Illegal Start and End Times";
     } else {
       const d = new Date(values.date).toLocaleDateString();

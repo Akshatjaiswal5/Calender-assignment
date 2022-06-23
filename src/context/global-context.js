@@ -1,11 +1,9 @@
 import React from "react";
 
 const GlobalContext = React.createContext({
-  currDate: null,
+  currDate: "",
+  appointments: {},
   currWeekArr: [],
-  appointments: [],
-  weekAppointments: [],
-  dispatchGlobalState: () => {},
 });
 
 export default GlobalContext;

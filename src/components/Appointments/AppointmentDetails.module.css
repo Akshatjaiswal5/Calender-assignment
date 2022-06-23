@@ -1,0 +1,75 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 0.3s;
+  z-index: 6;
+  display: grid;
+  place-items: center;
+}
+.detailpanel {
+  height: 50%;
+  width: 50%;
+}
+.title {
+  display: block;
+  padding: 1em;
+  font-size: 2.5em;
+  font-family: "Dosis", sans-serif;
+  text-shadow: 1px 1px 0px #ff0000;
+}
+.duration {
+  position: absolute;
+  top: 67%;
+  left: 27%;
+  display: block;
+  padding: 1em;
+  font-size: 1em;
+  font-family: "Dosis", sans-serif;
+  text-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.delete {
+  background: red;
+  border: 1px solid #cacaca;
+  border-radius: 0.3rem;
+  color: white;
+  display: inline-block;
+  font-family: -apple-system, "Inter", sans-serif;
+  font-size: 1.1rem;
+  padding: 0.4rem 1.2rem;
+  text-decoration: none;
+  text-align: center;
+  user-select: none;
+  cursor: pointer;
+  border: 0;
+  border-radius: 50px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px 30px;
+  position: absolute;
+  top: 67%;
+  left: 62%;
+}
+.cancel {
+  background: whitesmoke;
+  border: 1px solid #cacaca;
+  border-radius: 0.3rem;
+  color: black;
+  display: inline-block;
+  font-family: -apple-system, "Inter", sans-serif;
+  font-size: 1.1rem;
+  padding: 0.4rem 1.2rem;
+  text-decoration: none;
+  text-align: center;
+  user-select: none;
+  cursor: pointer;
+  border: 0;
+  border-radius: 50px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px 30px;
+  position: absolute;
+  top: 67%;
+  left: 50%;
+}

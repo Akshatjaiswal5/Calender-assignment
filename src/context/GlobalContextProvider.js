@@ -1,6 +1,7 @@
 import React, { useReducer } from "react";
 import GlobalContext from "./global-context";
 import { dummyAppointments } from "../dummydata/dummydata";
+
 const globalStateReducer = (state, action) => {
   const newState = { ...state };
 
@@ -11,7 +12,6 @@ const globalStateReducer = (state, action) => {
       endTime: action.endTime,
       date: action.date,
     };
-
     if (newState.appointments.hasOwnProperty(action.date)) {
       newState.appointments[action.date].push(newEntry);
     } else {
@@ -32,6 +32,12 @@ const globalStateReducer = (state, action) => {
     newDate = newDate.toLocaleDateString();
     newState.currDate = newDate;
     newState.currWeekArr = getWeekArr(newDate);
+  } else if (action.type === "DELETE_APPOINTMENT") {
+    let arr = newState.appointments[action.date];
+    arr = arr.filter((elem) => {
+      return elem.startTime !== action.startTime;
+    });
+    newState.appointments[action.date] = arr;
   }
   return newState;
 };
