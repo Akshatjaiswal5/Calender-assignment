@@ -84,8 +84,8 @@ const NewAppointmentForm = (props) => {
 
         arr.forEach((elem) => {
           if (
-            values.startTime <= elem.endTime &&
-            values.endTime >= elem.startTime
+            values.startTime < elem.endTime &&
+            values.endTime > elem.startTime
           ) {
             errors.startTime = "Conflicting Appointment found";
           }
